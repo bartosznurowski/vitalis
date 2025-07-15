@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>New Age - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ asset('article-page/css/styles.css') }}" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    </head>
+    <body id="page-top">
+
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav" style="background-color: rgb(0, 153, 36);">
+            <div class="container px-5">
+            
+                <img src="{{ asset('home-page/assets/img/logo.png') }}" alt="Logo" style="max-width: 150px; max-height: 75px;">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="bi-list"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    
+                    <h1 class="display-1">Admin dashboard</h1>       
+                    {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('admin_logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- Mashead header-->
+        <header class="masthead">
+        
+            <div class="mx-auto col-10 row">
+
+                <div class="col-lg-12">
+                    <p class="lead fw-normal text-muted mb-5"> Strona główna </p>
+                </div>
+
+                <div class="col-lg-12">
+                    
+                    <div class="mb-5 mb-lg-0 text-center text-lg-start">
+
+                        <h1 class="display-1 lh-1 mb-3 border-bottom border-3 border-success w-50">Dane strony</h1>
+
+                        <table class="mb-5">
+                            <thead>
+                                <tr>
+                                <th>Nazwa</th>
+                                <th>Akcja</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Artykuły</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'article' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Kategorie artykułów</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'article-category' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Witaminy</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'vitamin' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Kategorie witamin</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'vitamin-category' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Minerały</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'mineral' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Kategorie minerałów</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'mineral-category' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Właściwości</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'property' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Polifenole</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'polyphenol' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Kategorie polifenoli</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'polyphenol-category' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Kwasy tłuszczowe</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'fatty-acid' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Kategorie kwasy tłuszczowych</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'fatty-acid-category' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Błonniki</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'fiber' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Kategorie błonników</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'fiber-category' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Aminokwasy</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'amino-acid' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Kategorie aminokwasów</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'amino-acid-category' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Enzymy</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'enzyme' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Kategorie enzymów</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'enzyme-category' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Terpeny</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'terpene' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Kategorie terpenów</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'terpene-category' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Jak stosować</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'usage' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Ważne informacje</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'advisory' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Przeciwskazania</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'contraindication' }) }}">Przejdź</a></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Katalog</td>
+                                    <td><button class="btn btn-success"><a href="{{ path('admin_entity_list', {'entity': 'nutrition-entity-catalog' }) }}">Przejdź</a></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+
+                </div>
+
+                    
+            </div>
+        </header>
+
+        <!-- Footer-->
+        <footer class="bg-black text-center py-5">
+            <div class="container px-5">
+                <div class="text-white-50 small">
+                    <div class="mb-2">&copy; Vitalis 2024. All Rights Reserved.</div>
+                    <a href="#!">Privacy</a>
+                    <span class="mx-1">&middot;</span>
+                    <a href="#!">Terms</a>
+                    <span class="mx-1">&middot;</span>
+                    <a href="#!">FAQ</a>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- Bootstrap core JS-->
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{ asset('article-page/js/scripts.js') }}"></script>
+
+    </body>
+</html>

@@ -1,0 +1,97 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    # Explicit service definitions for EntityLogic classes
+    App\Service\EntityLogic\ArticleLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\ArticleCategoryLogic:
+        tags: ['app.entity_logic']
+    
+    App\Service\EntityLogic\VitaminLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\VitaminCategoryLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\MineralLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\MineralCategoryLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\PropertyLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\PolyphenolLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\PolyphenolCategoryLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\FattyAcidLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\FattyAcidCategoryLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\FiberLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\FiberCategoryLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\AminoAcidLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\AminoAcidCategoryLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\EnzymeLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\EnzymeCategoryLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\TerpeneLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\TerpeneCategoryLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\UsageLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\AdvisoryLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\ContraindicationLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\CatalogLogic:
+        tags: ['app.entity_logic']
+
+    App\Service\EntityLogic\EntityLogicHandler:
+        arguments:
+            $entityLogics: !tagged_iterator app.entity_logic
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
